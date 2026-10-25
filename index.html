@@ -109,6 +109,12 @@
       border-radius: 6px;
       padding: 20px;
       background: var(--surface);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
     }
 
     .card h3 {
@@ -120,6 +126,24 @@
       color: var(--muted);
       font-size: 0.9rem;
       margin-bottom: 16px;
+    }
+
+    .card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-top: 12px;
+    }
+
+    .card .detail {
+      display: none;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card.active .detail {
+      display: block;
     }
 
     .tags {
@@ -235,21 +259,31 @@
     <section id="proyek">
       <h2>Proyek</h2>
       <div class="grid">
-        <article class="card">
-          <h3>Sistem Web Minimalis</h3>
+        <article class="card" onclick="this.classList.toggle('active')">
+          <img src="https://picsum.photos/seed/webminimal/400/220" alt="Sistem Web Minimalis">
+          <h3 style="margin-top: 12px;">Sistem Web Minimalis</h3>
           <p>Aplikasi web berkinerja tinggi tanpa dependensi berlebih.</p>
           <div class="tags">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
             <span class="tag">JavaScript</span>
           </div>
+          <div class="detail">
+            <p><strong>Penjelasan Detail:</strong></p>
+            <p>Arsitektur web murni vanilla JS tanpa runtime framework berat. Waktu load di bawah 1 detik, bundle nol, optimal untuk performa dan SEO.</p>
+          </div>
         </article>
-        <article class="card">
-          <h3>REST API Service</h3>
+        <article class="card" onclick="this.classList.toggle('active')">
+          <img src="https://picsum.photos/seed/restapi/400/220" alt="REST API Service">
+          <h3 style="margin-top: 12px;">REST API Service</h3>
           <p>Layanan API ringan untuk sinkronisasi data antar platform.</p>
           <div class="tags">
             <span class="tag">Node.js</span>
             <span class="tag">JSON</span>
+          </div>
+          <div class="detail">
+            <p><strong>Penjelasan Detail:</strong></p>
+            <p>Menyediakan endpoint RESTful aman dengan autentikasi berbasis token JWT, validasi input strict, dan dokumentasi otomatis menggunakan OpenAPI/Swagger.</p>
           </div>
         </article>
       </div>
@@ -276,40 +310,5 @@
       <p>&copy; 2026 Portofolio. Desain minimalis tanpa gradasi.</p>
     </div>
   </footer>
-
-  <script>
-    const input = document.getElementById('ghUsername');
-    const btn = document.getElementById('btnLoad');
-    const box = document.getElementById('chartBox');
-
-    function loadContributions() {
-      const username = input.value.trim();
-      if (!username) {
-        box.innerHTML = '<span class="status-text">Masukkan username valid.</span>';
-        return;
-      }
-      box.innerHTML = '<span class="status-text">Memuat...</span>';
-      
-      const img = new Image();
-      img.src = `https://ghchart.rshah.org/000000/${username}`;
-      img.alt = `GitHub Contributions ${username}`;
-
-      img.onload = () => {
-        box.innerHTML = '';
-        box.appendChild(img);
-      };
-
-      img.onerror = () => {
-        box.innerHTML = '<span class="status-text">Gagal memuat kontribusi atau username tidak ditemukan.</span>';
-      };
-    }
-
-    btn.addEventListener('click', loadContributions);
-    input.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') loadContributions();
-    });
-
-    loadContributions();
-  </script>
 </body>
 </html>
