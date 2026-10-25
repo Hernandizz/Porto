@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #fafafa;
+      --border: #e5e5e5;
+      --text: #171717;
+      --muted: #737373;
+      --accent: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    p.lead {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+      background: var(--surface);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    .github-tool {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+      background: var(--surface);
+    }
+
+    .input-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      background: #fff;
+      color: var(--text);
+    }
+
+    input[type="text"]:focus {
+      outline: 1px solid var(--accent);
+    }
+
+    button {
+      padding: 10px 16px;
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    .chart-box {
+      overflow-x: auto;
+      padding: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 4px;
+      text-align: center;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chart-box img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .status-text {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      padding: 32px 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="brand">Portofolio</a>
+        <div class="nav-links">
+          <a href="#proyek">Proyek</a>
+          <a href="#github">GitHub</a>
+          <a href="#kontak">Kontak</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h1>Halo, Saya Developer.</h1>
+      <p class="lead">Membangun aplikasi web sederhana, fungsional, dan efisien dengan antarmuka yang bersih.</p>
+    </section>
+
+    <section id="proyek">
+      <h2>Proyek</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Sistem Web Minimalis</h3>
+          <p>Aplikasi web berkinerja tinggi tanpa dependensi berlebih.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>REST API Service</h3>
+          <p>Layanan API ringan untuk sinkronisasi data antar platform.</p>
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">JSON</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="github">
+      <h2>Aktivitas GitHub</h2>
+      <div class="github-tool">
+        <div class="input-group">
+          <input type="text" id="ghUsername" placeholder="Masukkan username GitHub..." value="torvalds">
+          <button id="btnLoad">Muat Kontribusi</button>
+        </div>
+        <div class="chart-box" id="chartBox">
+          <span class="status-text">Memuat grafik kontribusi...</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <h2>Kontak</h2>
+      <p class="lead">Tersedia untuk proyek dan kolaborasi baru.</p>
+      <p>Email: <a href="mailto:email@contoh.com" style="color: var(--text);">email@contoh.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Portofolio. Desain minimalis tanpa gradasi.</p>
+    </div>
+  </footer>
+
+  <script>
+    const input = document.getElementById('ghUsername');
+    const btn = document.getElementById('btnLoad');
+    const box = document.getElementById('chartBox');
+
+    function loadContributions() {
+      const username = input.value.trim();
+      if (!username) {
+        box.innerHTML = '<span class="status-text">Masukkan username valid.</span>';
+        return;
+      }
+      box.innerHTML = '<span class="status-text">Memuat...</span>';
+      
+      const img = new Image();
+      img.src = `https://ghchart.rshah.org/000000/${username}`;
+      img.alt = `GitHub Contributions ${username}`;
+
+      img.onload = () => {
+        box.innerHTML = '';
+        box.appendChild(img);
+      };
+
+      img.onerror = () => {
+        box.innerHTML = '<span class="status-text">Gagal memuat kontribusi atau username tidak ditemukan.</span>';
+      };
+    }
+
+    btn.addEventListener('click', loadContributions);
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') loadContributions();
+    });
+
+    loadContributions();
+  </script>
+</body>
+</html>
