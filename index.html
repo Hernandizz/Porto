@@ -3,236 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --surface: #fafafa;
-      --border: #e5e5e5;
-      --text: #171717;
-      --muted: #737373;
-      --accent: #000000;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 20px 0;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      font-weight: 700;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 1.1rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    section {
-      padding: 48px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 24px;
-      letter-spacing: -0.01em;
-    }
-
-    p.lead {
-      color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin-bottom: 24px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    @media (min-width: 640px) {
-      .grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .card {
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 20px;
-      background: var(--surface);
-      cursor: pointer;
-      transition: border-color 0.2s;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-    }
-
-    .card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 16px;
-    }
-
-    .card img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 4px;
-      margin-top: 12px;
-    }
-
-    .card .detail {
-      display: none;
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-    }
-
-    .card.active .detail {
-      display: block;
-    }
-
-    .tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      background: #fff;
-    }
-
-    .github-tool {
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 20px;
-      background: var(--surface);
-    }
-
-    .input-group {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    input[type="text"] {
-      flex: 1;
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-size: 0.95rem;
-      background: #fff;
-      color: var(--text);
-    }
-
-    input[type="text"]:focus {
-      outline: 1px solid var(--accent);
-    }
-
-    button {
-      padding: 10px 16px;
-      background: var(--accent);
-      color: #fff;
-      border: 1px solid var(--accent);
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-
-    button:hover {
-      background: #333;
-    }
-
-    .chart-box {
-      overflow-x: auto;
-      padding: 12px;
-      border: 1px solid var(--border);
-      background: #fff;
-      border-radius: 4px;
-      text-align: center;
-      min-height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .chart-box img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .status-text {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    footer {
-      padding: 32px 0;
-      color: var(--muted);
-      font-size: 0.85rem;
-      text-align: center;
-    }
-  </style>
+  <title>Portofolio - Hernandizz</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -241,7 +13,10 @@
       <nav>
         <a href="#" class="brand">Portofolio</a>
         <div class="nav-links">
+          <a href="#tentang">Tentang</a>
           <a href="#proyek">Proyek</a>
+          <a href="#pengalaman">Pengalaman</a>
+          <a href="#keterampilan">Keterampilan</a>
           <a href="#github">GitHub</a>
           <a href="#kontak">Kontak</a>
         </div>
@@ -250,42 +25,37 @@
   </header>
 
   <main class="container">
-    <section>
-      <h1>Halo, Saya Asep Hernandi</h1>
-      <p class="lead">Developer yang fokus pada antarmuka bersih, aplikasi web sederhana dan fungsional.</p>
-      <p class="lead">Spesialis dalam membangun REST API, aplikasi web minimalis, dan alat otomatisasi.</p>
+    <section id="tentang">
+      <h1>Halo, Saya Hernandizz.</h1>
+      <p class="lead">Saya seorang Data Analyst sekaligus full stack development yang gemar merancang aplikasi dan mengolah data, dan juga saya gemar dalam pengembangan perangkat lunak.</p>
+      <p class="lead">Spesialis dalam Data Science, aplikasi web minimalis, dan automasi proses bisnis.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Tujuan Profesi</h3>
+          <p>Menjadi seorang Data Analyst yang ahli dalam mengolah dan menganalisis data untuk memberikan wawasan yang berharga dan juga sebagai full stack developer.</p>
+        </div>
+        <div class="card">
+          <h3>Philosofi Kerja</h3>
+          <p>Indentation: Kode yang rapi. Documentation: Penjelasan yang jelas. Testing: Setiap fitur teruji. Deployment: Proses yang otomatis.</p>
+        </div>
+      </div>
     </section>
 
     <section id="proyek">
-      <h2>Proyek</h2>
-      <div class="grid">
-        <article class="card" onclick="this.classList.toggle('active')">
-          <img src="https://picsum.photos/seed/webminimal/400/220" alt="Sistem Web Minimalis">
-          <h3 style="margin-top: 12px;">Sistem Web Minimalis</h3>
-          <p>Aplikasi web berkinerja tinggi tanpa dependensi berlebih.</p>
-          <div class="tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-          </div>
-          <div class="detail">
-            <p><strong>Penjelasan Detail:</strong></p>
-            <p>Arsitektur web murni vanilla JS tanpa runtime framework berat. Waktu load di bawah 1 detik, bundle nol, optimal untuk performa dan SEO.</p>
-          </div>
-        </article>
-        <article class="card" onclick="this.classList.toggle('active')">
-          <img src="https://picsum.photos/seed/restapi/400/220" alt="REST API Service">
-          <h3 style="margin-top: 12px;">REST API Service</h3>
-          <p>Layanan API ringan untuk sinkronisasi data antar platform.</p>
-          <div class="tags">
-            <span class="tag">Node.js</span>
-            <span class="tag">JSON</span>
-          </div>
-          <div class="detail">
-            <p><strong>Penjelasan Detail:</strong></p>
-            <p>Menyediakan endpoint RESTful aman dengan autentikasi berbasis token JWT, validasi input strict, dan dokumentasi otomatis menggunakan OpenAPI/Swagger.</p>
-          </div>
-        </article>
+      <h2>Proyek Unggulan</h2>
+      <div class="grid" id="projectGrid">
+      </div>
+    </section>
+
+    <section id="pengalaman">
+      <h2>Pengalaman Kerja</h2>
+      <div class="timeline" id="experienceList">
+      </div>
+    </section>
+
+    <section id="keterampilan">
+      <h2>Keterampilan Teknis</h2>
+      <div id="skillList">
       </div>
     </section>
 
@@ -300,8 +70,9 @@
 
     <section id="kontak">
       <h2>Kontak</h2>
-      <p class="lead">Tersedia untuk proyek dan kolaborasi baru.</p>
-      <p>Email: <a href="mailto:email@contoh.com" style="color: var(--text);">email@contoh.com</a></p>
+      <p class="lead">Tersedia untuk proyek kontrak, kolaborasi tim, atau diskusi teknis.</p>
+      <p>Email: <a href="mailto:email@contoh.com" class="contact-link">email@contoh.com</a></p>
+      <p>GitHub: <a href="https://github.com/Hernandizz" class="contact-link">github.com/Hernandizz</a></p>
     </section>
   </main>
 
@@ -310,5 +81,19 @@
       <p>&copy; 2026 Portofolio. Desain minimalis tanpa gradasi.</p>
     </div>
   </footer>
+
+  <div id="projectModal" class="modal">
+    <div class="modal-content" id="modalContent">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <img id="modalImage" src="" alt="">
+      <p id="modalDescription"></p>
+      <div class="tags" id="modalTags"></div>
+      <p id="modalDetails"></p>
+      <a id="modalLink" href="#" target="_blank" class="btn btn-primary">Lihat Proyek</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
