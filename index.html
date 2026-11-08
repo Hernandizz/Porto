@@ -1,628 +1,517 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asep Hernandi – Web Developer</title>
-  <meta name="description" content="Portfolio of Asep Hernandi, a web developer focused on clean interfaces, functional web apps, and REST APIs.">
-  <meta property="og:title" content="Asep Hernandi – Web Developer">
-  <meta property="og:description" content="Web developer focused on clean interfaces, functional web apps, and REST APIs.">
+  <title>Asep Hernandi | Software Engineer &amp; Researcher</title>
+  <meta name="description" content="Portfolio Asep Hernandi, lulusan S1 Teknik Informatika (Cum Laude, IPK 3.74). Berfokus pada Full-Stack Web Development, Blockchain, Data Analytics, dan Artificial Intelligence.">
+  <meta property="og:title" content="Asep Hernandi | Software Engineer &amp; Researcher">
+  <meta property="og:description" content="Full-Stack Web Development, Permissioned Blockchain, Data Analytics, dan Computer Vision.">
   <meta property="og:type" content="website">
-  <style>
-    /* --- Reset & Base --- */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --text: #1a1a1a;
-      --muted: #555555;
-      --light: #888888;
-      --border: #e0e0e0;
-      --surface: #f7f7f7;
-      --bg: #ffffff;
-    }
+  <!-- Immediate Theme Initializer to Prevent Flash of Incorrect Theme (FOIT) -->
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('asep-portfolio-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
 
-    html { scroll-behavior: smooth; }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-      }
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* --- Skip link --- */
-    .skip-link {
-      position: absolute;
-      top: -100%;
-      left: 16px;
-      padding: 8px 16px;
-      background: var(--text);
-      color: var(--bg);
-      text-decoration: none;
-      border-radius: 0 0 4px 4px;
-      z-index: 100;
-      font-size: 0.875rem;
-    }
-    .skip-link:focus { top: 0; }
-
-    /* --- Interactive base --- */
-    a, button, summary, [role="button"] { cursor: pointer; }
-    button:disabled { cursor: not-allowed; opacity: 0.5; }
-
-    :focus-visible {
-      outline: 2px solid var(--text);
-      outline-offset: 2px;
-    }
-
-    /* --- Container --- */
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ================================================================
-       HEADER
-       ================================================================ */
-    header {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    header nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .site-name {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-
-    .nav-links { display: flex; gap: 24px; }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.15s ease;
-    }
-    .nav-links a:hover { color: var(--text); }
-
-    /* ================================================================
-       SECTIONS
-       ================================================================ */
-    .section { padding: 64px 0; }
-    .section + .section { border-top: 1px solid var(--border); }
-
-    .section-heading {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 32px;
-      letter-spacing: 0.01em;
-    }
-
-    /* ================================================================
-       INTRO
-       h1 is the focal point; subtitle is muted for clear hierarchy.
-       Links are underlined subtly, not styled as buttons.
-       ================================================================ */
-    .intro { padding: 80px 0 64px; }
-
-    .intro h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .intro .subtitle {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 560px;
-      margin-bottom: 32px;
-      line-height: 1.65;
-    }
-
-    .intro-links { display: flex; gap: 20px; flex-wrap: wrap; }
-
-    .intro-links a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.9rem;
-      padding-bottom: 1px;
-      border-bottom: 1px solid var(--border);
-      transition: border-color 0.15s ease;
-    }
-    .intro-links a:hover { border-color: var(--text); }
-
-    /* ================================================================
-       PROJECTS
-       Featured project gets a container (border + bg) for hierarchy
-       (RHYTHM 2). Others are plain text blocks. Monospace tags signal
-       technical context functionally.
-       ================================================================ */
-    .project { margin-bottom: 40px; }
-    .project:last-child { margin-bottom: 0; }
-
-    .project-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 8px;
-    }
-
-    .project-title a {
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.15s ease;
-    }
-    .project-title a:hover { border-color: var(--text); }
-
-    .project p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 12px;
-      max-width: 600px;
-    }
-
-    .project-meta { display: flex; gap: 8px; flex-wrap: wrap; }
-
-    .tech-tag {
-      font-family: "SF Mono", "Fira Code", "Roboto Mono", "Consolas", monospace;
-      font-size: 0.75rem;
-      padding: 3px 8px;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      color: var(--muted);
-      background: var(--surface);
-    }
-
-    .project.featured {
-      padding: 24px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: var(--surface);
-    }
-    .project.featured .project-title { font-size: 1.2rem; }
-
-    /* ================================================================
-       BACKGROUND (experience + skills)
-       Combined to avoid the template pattern of identical separate
-       sections. Remove .exp-item blocks if no work experience.
-       ================================================================ */
-    .exp-item { margin-bottom: 28px; }
-    .exp-item:last-child { margin-bottom: 0; }
-
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
-
-    .exp-role { font-weight: 600; font-size: 1rem; }
-    .exp-period { font-size: 0.85rem; color: var(--light); }
-
-    .exp-company {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .exp-desc {
-      font-size: 0.9rem;
-      color: var(--muted);
-      max-width: 580px;
-      line-height: 1.6;
-    }
-
-    .skills-area { margin-top: 40px; }
-
-    .skills-group { margin-bottom: 16px; }
-    .skills-group:last-child { margin-bottom: 0; }
-
-    .skills-group-label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .skills-list { display: flex; gap: 8px; flex-wrap: wrap; }
-
-    /* ================================================================
-       GITHUB ACTIVITY
-       Interactive section providing RHYTHM 2 variation. Chart serves
-       as live proof of activity. Has empty, loading, and error states.
-       ================================================================ */
-    .github-tool {
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 20px;
-      background: var(--surface);
-    }
-
-    .input-group { display: flex; gap: 8px; margin-bottom: 16px; }
-
-    .input-group input[type="text"] {
-      flex: 1;
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-size: 0.9rem;
-      font-family: inherit;
-      background: var(--bg);
-      color: var(--text);
-      min-width: 0;
-    }
-
-    .gh-btn {
-      padding: 10px 16px;
-      background: var(--text);
-      color: var(--bg);
-      border: 1px solid var(--text);
-      border-radius: 4px;
-      font-size: 0.9rem;
-      font-family: inherit;
-      white-space: nowrap;
-      transition: background 0.15s ease;
-      min-height: 44px;
-    }
-    .gh-btn:hover { background: #333; }
-    .gh-btn:active { background: #000; }
-
-    .chart-box {
-      overflow-x: auto;
-      padding: 16px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      border-radius: 4px;
-      text-align: center;
-      min-height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .chart-box img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .status-text { color: var(--muted); font-size: 0.875rem; }
-
-    /* ================================================================
-       CONTACT
-       ================================================================ */
-    .contact-note {
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin-bottom: 24px;
-      max-width: 480px;
-      line-height: 1.6;
-    }
-
-    .contact-line { margin-bottom: 8px; font-size: 0.95rem; }
-
-    .contact-line a {
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      transition: border-color 0.15s ease;
-    }
-    .contact-line a:hover { border-color: var(--text); }
-
-    /* ================================================================
-       FOOTER
-       ================================================================ */
-    footer {
-      padding: 32px 0;
-      border-top: 1px solid var(--border);
-    }
-    footer p { color: var(--light); font-size: 0.8rem; }
-
-    /* ================================================================
-       MOBILE (max 640px)
-       Content breaks below 640px. Padding tightens, type scales down,
-       input group stacks vertically.
-       ================================================================ */
-    @media (max-width: 640px) {
-      .intro { padding: 48px 0 40px; }
-      .intro h1 { font-size: 1.6rem; }
-      .intro .subtitle { font-size: 1rem; }
-
-      .section { padding: 48px 0; }
-
-      .nav-links a { font-size: 0.85rem; }
-      .nav-links { gap: 16px; }
-
-      .input-group { flex-direction: column; }
-
-      .exp-header { flex-direction: column; gap: 2px; }
-
-      .project.featured { padding: 16px; }
-    }
-
-    /* Tablet (641-900px) */
-    @media (min-width: 641px) and (max-width: 900px) {
-      .container { padding: 0 32px; }
-    }
-  </style>
+  <!-- Modular Stylesheets (Antislop Architecture Consensus) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <a href="#main" class="skip-link">Skip to content</a>
+  <!-- Accessible Skip Link (WCAG AA & R-32) -->
+  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
+  <!-- Global Header -->
   <header>
     <div class="container">
-      <nav aria-label="Main navigation">
-        <a href="#" class="site-name" aria-label="Home">Asep Hernandi</a>
-        <div class="nav-links">
-          <a href="#work">Work</a>
-          <a href="#background">Background</a>
-          <a href="#github">GitHub</a>
-          <a href="#contact">Contact</a>
+      <nav aria-label="Navigasi Utama">
+        <a href="#" class="site-brand" aria-label="Asep Hernandi - Halaman Utama">
+          <span class="status-indicator" aria-hidden="true"></span>
+          <span>Asep Hernandi</span>
+        </a>
+
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li><a href="#work">Karya</a></li>
+            <li><a href="#background">Pengalaman</a></li>
+            <li><a href="#github">Repositori</a></li>
+            <li><a href="#contact">Kontak</a></li>
+          </ul>
+
+          <!-- Light / Dark Mode Toggle Button -->
+          <button type="button" class="theme-toggle" id="themeToggle" aria-label="Ganti mode tampilan" title="Ganti mode tampilan">
+            <!-- Sun Icon (shown in dark mode) -->
+            <svg class="sun-icon" viewBox="0 0 24 24" style="display: none;" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <!-- Moon Icon (shown in light mode) -->
+            <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
         </div>
       </nav>
     </div>
   </header>
 
-  <main id="main" class="container">
+  <!-- Main Landmark -->
+  <main id="main-content">
 
-    <!-- INTRO -->
-    <section class="intro" aria-label="Introduction">
-      <h1>Asep Hernandi</h1>
-      <p class="subtitle">
-        Lulusan S1 Teknik Informatika (Cum Laude, IPK 3,74) dengan fokus pada
-        Full-Stack Web Development, Blockchain, Data Analytics, dan Artificial Intelligence.
-        Berbasis di Semarang, Indonesia.
-      </p>
-      <div class="intro-links">
-        <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com/in/AsepHernandi" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:asephernand@gmail.com">asephernand@gmail.com</a>
-      </div>
-    </section>
-
-    <!-- SELECTED WORK -->
-    <section id="work" class="section" aria-label="Selected work">
-      <h2 class="section-heading">Selected Work</h2>
-
-      <div class="project featured">
-        <h3 class="project-title">HomeChain</h3>
-        <p>
-          Aplikasi full-stack permissioned blockchain untuk transparansi dan akuntabilitas
-          pengelolaan Dana Desa di Indonesia. Mengintegrasikan tiga pemangku kepentingan
-          (BUMDes, UMKM, Auditor) dalam satu distributed ledger dengan smart contract
-          untuk rekonsiliasi keuangan real-time dan Digital Signature (ECDSA) pada setiap transaksi.
-        </p>
-        <div class="project-meta">
-          <span class="tech-tag">React</span>
-          <span class="tech-tag">Vite</span>
-          <span class="tech-tag">TypeScript</span>
-          <span class="tech-tag">Hyperledger Fabric</span>
-        </div>
-      </div>
-
-      <div class="project">
-        <h3 class="project-title">Web GIS Sekolah Dasar Kota Semarang</h3>
-        <p>
-          Aplikasi Web GIS untuk memvisualisasikan persebaran lokasi 327+ Sekolah Dasar Negeri
-          di Kota Semarang secara interaktif. Dibangun dari awal mencakup pengolahan,
-          analisis, dan validasi data spasial untuk platform pemerintah daerah (DISKOMINFO).
-        </p>
-        <div class="project-meta">
-          <span class="tech-tag">GIS</span>
-          <span class="tech-tag">JavaScript</span>
-          <span class="tech-tag">Data Analytics</span>
-        </div>
-      </div>
-
-      <div class="project">
-        <h3 class="project-title">Automatic License Plate Recognition</h3>
-        <p>
-          Sistem pengenalan pelat nomor kendaraan Indonesia pada skenario dunia nyata
-          menggunakan EasyOCR dan validasi Regex. Mencapai presisi 100% dan F1-Score 86%
-          berdasarkan data CCTV nyata. Dipublikasikan di jurnal SINTA 5.
-        </p>
-        <div class="project-meta">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">EasyOCR</span>
-          <span class="tech-tag">Computer Vision</span>
-          <span class="tech-tag">Regex</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- BACKGROUND -->
-    <section id="background" class="section" aria-label="Background">
-      <h2 class="section-heading">Background</h2>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-role">Asisten Penelitian Dosen</span>
-          <span class="exp-period">Sep 2025 – Jun 2026</span>
-        </div>
-        <p class="exp-company">Universitas Islam Sultan Agung, Semarang</p>
-        <p class="exp-desc">
-          Merancang dan membangun HomeChain, aplikasi full-stack permissioned blockchain
-          untuk transparansi pengelolaan Dana Desa. Mengotomatisasi rekonsiliasi keuangan
-          melalui smart contract dan menerapkan Digital Signature (ECDSA) pada setiap transaksi.
-        </p>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-role">Programmer and Data Analytics</span>
-          <span class="exp-period">Mar 2025 – Jun 2025</span>
-        </div>
-        <p class="exp-company">DISKOMINFO Kota Semarang</p>
-        <p class="exp-desc">
-          Mengolah dan menganalisis dataset spasial GIS untuk 327+ Sekolah Dasar Negeri
-          di Kota Semarang. Merancang dan membangun aplikasi Web GIS dari awal untuk
-          memvisualisasikan persebaran lokasi sekolah secara interaktif.
-        </p>
-      </div>
-
-      <div class="exp-item" style="margin-top: 32px;">
-        <div class="exp-header">
-          <span class="exp-role">S1 Teknik Informatika (Cum Laude)</span>
-          <span class="exp-period">Sep 2022 – Jun 2026</span>
-        </div>
-        <p class="exp-company">Universitas Islam Sultan Agung, Semarang</p>
-        <p class="exp-desc">
-          IPK 3,74/4,00. Berfokus pada pengembangan sistem pengenalan pelat nomor kendaraan
-          Indonesia secara real-time (presisi 100%, F1-Score 86%), dipublikasikan pada jurnal SINTA 5.
-        </p>
-      </div>
-
-      <div class="skills-area">
-        <div class="skills-group">
-          <p class="skills-group-label">Languages</p>
-          <div class="skills-list">
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">SQL</span>
+    <!-- HERO SECTION -->
+    <section class="hero" aria-labelledby="hero-name">
+      <div class="container">
+        <div class="prose">
+          <div class="hero-badge">
+            <span aria-hidden="true">🎓</span>
+            <span>S1 Teknik Informatika, Cum Laude (IPK 3.74/4.00)</span>
           </div>
-        </div>
-        <div class="skills-group">
-          <p class="skills-group-label">Frameworks &amp; Tools</p>
-          <div class="skills-list">
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Vite</span>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">Hyperledger Fabric</span>
-            <span class="tech-tag">EasyOCR</span>
-            <span class="tech-tag">Git</span>
+          <h1 id="hero-name" class="hero-title">Asep Hernandi</h1>
+          <p class="hero-subtitle">
+            Software Engineer dan Peneliti yang berfokus pada Full-Stack Web Development,
+            Permissioned Blockchain, Data Analytics, dan Artificial Intelligence. Berpengalaman
+            membangun sistem terdesentralisasi untuk transparansi publik dan solusi pemetaan spasial pemerintahan.
+          </p>
+          <div class="hero-actions">
+            <!-- CV Download Button with Transparent File Size -->
+            <a href="asset/CV_Asep_Hernandi.pdf" download="CV_Asep_Hernandi.pdf" class="btn btn-primary" type="application/pdf">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download CV</span>
+              <span class="btn-pill-info">(PDF, 225 KB)</span>
+            </a>
+
+            <!-- Quick Contact Anchor -->
+            <a href="#contact" class="btn btn-secondary">
+              <span>Hubungi Saya</span>
+            </a>
           </div>
-        </div>
-        <div class="skills-group">
-          <p class="skills-group-label">Focus Areas</p>
-          <div class="skills-list">
-            <span class="tech-tag">Software Development</span>
-            <span class="tech-tag">Artificial Intelligence</span>
-            <span class="tech-tag">Blockchain</span>
-            <span class="tech-tag">Data Analytics</span>
-            <span class="tech-tag">GIS</span>
+
+          <div class="social-links">
+            <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer" class="social-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://linkedin.com/in/AsepHernandi" target="_blank" rel="noopener noreferrer" class="social-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:asephernand@gmail.com" class="social-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>asephernand@gmail.com</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- GITHUB ACTIVITY -->
-    <section id="github" class="section" aria-label="GitHub activity">
-      <h2 class="section-heading">GitHub Activity</h2>
-      <div class="github-tool">
-        <div class="input-group">
-          <label for="ghUsername" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;">GitHub username</label>
-          <input type="text" id="ghUsername" placeholder="Enter GitHub username..." value="Hernandizz" aria-label="GitHub username">
-          <button type="button" class="gh-btn" id="btnLoad">Load</button>
+    <!-- SELECTED WORK SECTION -->
+    <section id="work" class="section" aria-labelledby="section-work-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="section-work-heading" class="section-title">Karya Pilihan</h2>
+          <p class="section-desc prose">
+            Implementasi nyata sistem terdistribusi, pengolahan data spasial, dan kecerdasan buatan dengan verifikasi hasil.
+          </p>
         </div>
-        <div class="chart-box" id="chartBox" role="status" aria-live="polite">
-          <span class="status-text">Loading contributions…</span>
+
+        <div class="work-grid">
+          <!-- Featured Project 1: HomeChain -->
+          <article class="featured-card">
+            <span class="featured-label">
+              <span aria-hidden="true">★</span> Proyek Unggulan
+            </span>
+            <h3 class="project-heading">
+              <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer">
+                <span>HomeChain: Permissioned Blockchain untuk Akuntabilitas Dana Desa</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+            </h3>
+            <p class="project-desc prose">
+              Aplikasi full-stack permissioned blockchain yang dirancang untuk transparansi dan akuntabilitas
+              pengelolaan Dana Desa di Indonesia. Sistem ini mengintegrasikan tiga pemangku kepentingan kunci
+              (BUMDes, Pelaku UMKM, dan Auditor Independen) ke dalam satu jaringan distributed ledger yang
+              menjalankan smart contract (chaincode) untuk rekonsiliasi audit keuangan real-time serta validasi
+              tanda tangan digital ECDSA pada setiap blok transaksi.
+            </p>
+
+            <!-- Architecture Flow Showcase Card (CSS-based system diagram) -->
+            <div class="arch-diagram" aria-label="Diagram Arsitektur Alur Sistem HomeChain">
+              <div class="arch-header">Spesifikasi Arsitektur Sistem</div>
+              <div class="arch-nodes">
+                <div class="arch-node">
+                  <div class="node-title">Klien Terverifikasi</div>
+                  <div class="node-subtitle">BUMDes &amp; Auditor Web App</div>
+                </div>
+                <div class="arch-connector" aria-hidden="true">&rarr;</div>
+                <div class="arch-node highlight">
+                  <div class="node-title">Smart Contract / Chaincode</div>
+                  <div class="node-subtitle">Automated Audit &amp; ECDSA</div>
+                </div>
+                <div class="arch-connector" aria-hidden="true">&rarr;</div>
+                <div class="arch-node">
+                  <div class="node-title">Hyperledger Fabric</div>
+                  <div class="node-subtitle">Distributed Immutable Ledger</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tags-list">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Vite</span>
+              <span class="tech-tag">Hyperledger Fabric</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+          </article>
+
+          <!-- Subgrid for Secondary Projects -->
+          <div class="projects-subgrid">
+            <!-- Project 2: Web GIS -->
+            <article class="project-card">
+              <div>
+                <div class="metric-strip">
+                  <span class="metric-badge verified">
+                    <span aria-hidden="true">📍</span> 327+ Titik SD Terpetakan
+                  </span>
+                  <span class="metric-badge">DISKOMINFO Semarang</span>
+                </div>
+                <h3 class="project-heading">
+                  <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer">
+                    <span>Web GIS Sekolah Dasar Kota Semarang</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
+                </h3>
+                <p class="project-desc">
+                  Aplikasi sistem informasi geografis berbasis web untuk memetakan dan menganalisis persebaran
+                  327+ Sekolah Dasar Negeri di seluruh wilayah Kota Semarang secara interaktif. Dibangun mulai
+                  dari pengumpulan, validasi koordinat spasial, hingga visualisasi antarmuka dinamis untuk
+                  kebutuhan perencanaan daerah.
+                </p>
+              </div>
+              <div class="tags-list">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">GIS Analysis</span>
+                <span class="tech-tag">Leaflet / Mapbox</span>
+                <span class="tech-tag">Data Cleaning</span>
+              </div>
+            </article>
+
+            <!-- Project 3: ALPR -->
+            <article class="project-card">
+              <div>
+                <div class="metric-strip">
+                  <span class="metric-badge verified">
+                    <span aria-hidden="true">✓</span> 100% Presisi (CCTV)
+                  </span>
+                  <span class="metric-badge verified">F1-Score: 86%</span>
+                  <span class="metric-badge">Jurnal SINTA 5</span>
+                </div>
+                <h3 class="project-heading">
+                  <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer">
+                    <span>Automatic License Plate Recognition</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
+                </h3>
+                <p class="project-desc">
+                  Sistem Computer Vision untuk deteksi dan pengenalan karakter pelat nomor kendaraan bermotor
+                  di Indonesia pada kondisi pencahayaan dan sudut CCTV nyata. Mengombinasikan model EasyOCR
+                  dengan filter Regex terstruktur untuk validasi sintaks pelat registrasi nasional.
+                </p>
+              </div>
+              <div class="tags-list">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">EasyOCR</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">Regex</span>
+                <span class="tech-tag">Paper SINTA 5</span>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section" aria-label="Contact">
-      <h2 class="section-heading">Contact</h2>
-      <p class="contact-note">
-        Terbuka untuk posisi, kolaborasi, atau proyek menarik. Paling mudah dihubungi lewat email.
-      </p>
-      <div class="contact-line">
-        <a href="mailto:asephernand@gmail.com">asephernand@gmail.com</a>
+    <!-- BACKGROUND SECTION (Experience & Education) -->
+    <section id="background" class="section" aria-labelledby="section-bg-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="section-bg-heading" class="section-title">Pengalaman &amp; Pendidikan</h2>
+          <p class="section-desc prose">
+            Rekam jejak penelitian akademis, keterlibatan institusi pemerintahan, dan latar belakang studi.
+          </p>
+        </div>
+
+        <div class="timeline-list">
+          <!-- Experience 1 -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-role">Asisten Penelitian Dosen</h3>
+              <time class="timeline-period">Sep 2025 – Jun 2026</time>
+            </div>
+            <p class="timeline-company">Universitas Islam Sultan Agung, Semarang</p>
+            <p class="timeline-desc prose">
+              Memimpin riset dan rancang bangun arsitektur HomeChain: aplikasi permissioned blockchain
+              untuk transparansi pelaporan Dana Desa. Mengimplementasikan smart contract pada Hyperledger Fabric
+              dan memastikan validasi transaksi terenkripsi dengan algoritma Digital Signature (ECDSA).
+            </p>
+          </div>
+
+          <!-- Experience 2 -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-role">Programmer &amp; Data Analytics</h3>
+              <time class="timeline-period">Mar 2025 – Jun 2025</time>
+            </div>
+            <p class="timeline-company">DISKOMINFO Kota Semarang</p>
+            <p class="timeline-desc prose">
+              Mengolah, memvalidasi, dan menganalisis dataset spasial geografis 327+ Sekolah Dasar Negeri.
+              Merancang antarmuka Web GIS interaktif yang memudahkan pemangku kebijakan dalam memantau
+              pemerataan fasilitas pendidikan di Kota Semarang.
+            </p>
+          </div>
+
+          <!-- Education -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-role">S1 Teknik Informatika (Cum Laude, IPK 3.74/4.00)</h3>
+              <time class="timeline-period">Sep 2022 – Jun 2026</time>
+            </div>
+            <p class="timeline-company">Universitas Islam Sultan Agung, Semarang</p>
+            <p class="timeline-desc prose">
+              Menyelesaikan studi sarjana dengan predikat dengan pujian (Cum Laude). Riset tugas akhir
+              berfokus pada Automatic License Plate Recognition berbasis Computer Vision dengan presisi 100%,
+              yang berhasil dipublikasikan pada jurnal ilmiah terakreditasi nasional SINTA 5.
+            </p>
+          </div>
+        </div>
+
+        <!-- Skills Matrix -->
+        <div class="skills-container">
+          <div class="skills-row">
+            <h4 class="skills-label">Bahasa Pemrograman</h4>
+            <div class="tags-list">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript (ES6+)</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQL</span>
+            </div>
+          </div>
+
+          <div class="skills-row">
+            <h4 class="skills-label">Frameworks &amp; Perkakas</h4>
+            <div class="tags-list">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Vite</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Hyperledger Fabric</span>
+              <span class="tech-tag">EasyOCR / OpenCV</span>
+              <span class="tech-tag">Git &amp; GitHub</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+          </div>
+
+          <div class="skills-row">
+            <h4 class="skills-label">Bidang Keahlian Utama</h4>
+            <div class="tags-list">
+              <span class="tech-tag">Full-Stack Development</span>
+              <span class="tech-tag">Permissioned Blockchain</span>
+              <span class="tech-tag">Computer Vision</span>
+              <span class="tech-tag">Data &amp; GIS Analytics</span>
+              <span class="tech-tag">Smart Contracts</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="contact-line">
-        <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer">github.com/Hernandizz</a>
+    </section>
+
+    <!-- GITHUB REPOSITORIES SECTION -->
+    <section id="github" class="section" aria-labelledby="section-gh-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="section-gh-heading" class="section-title">Repositori &amp; Kode Sumber</h2>
+          <p class="section-desc prose">
+            Koleksi repositori GitHub terverifikasi milik Asep Hernandi. Filter berdasarkan kategori teknis di bawah ini.
+          </p>
+        </div>
+
+        <!-- Interactive Category Filter (Pure Vanilla JS) -->
+        <div class="github-filter-bar" role="toolbar" aria-label="Filter kategori repositori">
+          <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">Semua Repositori</button>
+          <button type="button" class="filter-btn" data-filter="blockchain" aria-pressed="false">Blockchain</button>
+          <button type="button" class="filter-btn" data-filter="ai-vision" aria-pressed="false">AI &amp; Vision</button>
+          <button type="button" class="filter-btn" data-filter="gis-web" aria-pressed="false">GIS &amp; Web</button>
+        </div>
+
+        <div class="repo-grid">
+          <!-- Repo 1: HomeChain -->
+          <article class="repo-card" data-category="blockchain">
+            <div>
+              <div class="repo-name">
+                <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer">
+                  <span>HomeChain-Core</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              </div>
+              <p class="repo-desc">
+                Core chaincode dan distributed audit ledger untuk sistem dana desa berbasis Hyperledger Fabric.
+              </p>
+            </div>
+            <div class="repo-meta">
+              <span class="repo-lang">
+                <span class="lang-dot" style="background-color: #3178c6;" aria-hidden="true"></span>
+                <span>TypeScript</span>
+              </span>
+              <span>Blockchain</span>
+            </div>
+          </article>
+
+          <!-- Repo 2: ALPR System -->
+          <article class="repo-card" data-category="ai-vision">
+            <div>
+              <div class="repo-name">
+                <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer">
+                  <span>License-Plate-Recognition-ID</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              </div>
+              <p class="repo-desc">
+                Implementasi EasyOCR dengan regex parsing untuk identifikasi pelat nomor Indonesia pada video stream CCTV.
+              </p>
+            </div>
+            <div class="repo-meta">
+              <span class="repo-lang">
+                <span class="lang-dot" style="background-color: #3572a5;" aria-hidden="true"></span>
+                <span>Python</span>
+              </span>
+              <span>Computer Vision</span>
+            </div>
+          </article>
+
+          <!-- Repo 3: Web GIS Semarang -->
+          <article class="repo-card" data-category="gis-web">
+            <div>
+              <div class="repo-name">
+                <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer">
+                  <span>Semarang-PrimarySchools-GIS</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              </div>
+              <p class="repo-desc">
+                Visualisasi pemetaan 327+ Sekolah Dasar Negeri Kota Semarang dengan layer spasial teroptimasi.
+              </p>
+            </div>
+            <div class="repo-meta">
+              <span class="repo-lang">
+                <span class="lang-dot" style="background-color: #f7df1e;" aria-hidden="true"></span>
+                <span>JavaScript</span>
+              </span>
+              <span>GIS Spasial</span>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="contact-line">
-        <a href="https://linkedin.com/in/AsepHernandi" target="_blank" rel="noopener noreferrer">linkedin.com/in/AsepHernandi</a>
-      </div>
-      <div class="contact-line">
-        <a href="tel:+6281326433292">+62 813-2643-3292</a>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section" aria-labelledby="section-contact-heading">
+      <div class="container">
+        <div class="contact-box">
+          <h2 id="section-contact-heading" class="section-title">Mulai Berdiskusi</h2>
+          <p class="contact-note prose">
+            Saya terbuka untuk peluang kerja rekayasa perangkat lunak, proyek kolaborasi sistem terdistribusi,
+            maupun riset kecerdasan buatan. Silakan salin email di bawah atau hubungi melalui jejaring profesional.
+          </p>
+
+          <div class="contact-channels">
+            <!-- 1-Click Copy to Clipboard Button with Accessible Live Announcement -->
+            <button type="button" class="clipboard-btn" id="copyEmailBtn" aria-label="Salin alamat email ke clipboard">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>asephernand@gmail.com</span>
+              <span class="copy-feedback" id="copyFeedback" role="status" aria-live="polite"></span>
+            </button>
+
+            <!-- Direct LinkedIn Button -->
+            <a href="https://linkedin.com/in/AsepHernandi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+
+            <!-- Direct GitHub Button -->
+            <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
   </main>
 
+  <!-- Global Footer -->
   <footer>
-    <div class="container">
-      <p>&copy; 2026 Asep Hernandi</p>
+    <div class="container footer-content">
+      <p>&copy; 2026 Asep Hernandi. Dirancang dengan presisi &amp; performa tinggi.</p>
+      <p>Semarang, Jawa Tengah, Indonesia</p>
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var input = document.getElementById('ghUsername');
-      var btn = document.getElementById('btnLoad');
-      var box = document.getElementById('chartBox');
-
-      function loadContributions() {
-        var username = input.value.trim();
-
-        if (!username) {
-          box.innerHTML = '<span class="status-text">Enter a valid GitHub username.</span>';
-          return;
-        }
-
-        box.innerHTML = '<span class="status-text">Loading contributions\u2026</span>';
-        btn.disabled = true;
-
-        var img = new Image();
-        img.src = 'https://ghchart.rshah.org/1a1a1a/' + encodeURIComponent(username);
-        img.alt = 'GitHub contribution chart for ' + username;
-        img.width = 722;
-        img.height = 112;
-        img.style.maxWidth = '100%';
-        img.style.height = 'auto';
-
-        img.onload = function () {
-          box.innerHTML = '';
-          box.appendChild(img);
-          btn.disabled = false;
-        };
-
-        img.onerror = function () {
-          box.innerHTML = '<span class="status-text">Could not load contributions. Check the username and try again.</span>';
-          btn.disabled = false;
-        };
-      }
-
-      btn.addEventListener('click', loadContributions);
-
-      input.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') loadContributions();
-      });
-
-      loadContributions();
-    })();
-  </script>
-
+  <!-- Application Logic (Deferred) -->
+  <script src="js/main.js" defer></script>
 </body>
 </html>
