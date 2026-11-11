@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Asep Hernandi | Software Engineer &amp; Researcher</title>
-  <meta name="description" content="Portfolio Asep Hernandi, lulusan S1 Teknik Informatika (Cum Laude, IPK 3.74). Berfokus pada Full-Stack Web Development, Blockchain, Data Analytics, dan Artificial Intelligence.">
+  <meta name="description" content="Portfolio Asep Hernandi, lulusan S1 Teknik Informatika (Cum Laude, IPK 3.74). Berfokus pada Permissioned Blockchain, Computer Vision &amp; AI, dan Civic GIS Spasial.">
   <meta property="og:title" content="Asep Hernandi | Software Engineer &amp; Researcher">
-  <meta property="og:description" content="Full-Stack Web Development, Permissioned Blockchain, Data Analytics, dan Computer Vision.">
+  <meta property="og:description" content="Permissioned Blockchain (Hyperledger Fabric), Computer Vision (ALPR SINTA 5), dan Civic GIS Spasial Kota Semarang.">
   <meta property="og:type" content="website">
+
+  <!-- Typography: Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Immediate Theme Initializer to Prevent Flash of Incorrect Theme (FOIT) -->
   <script>
@@ -77,56 +82,89 @@
     <!-- HERO SECTION -->
     <section class="hero" aria-labelledby="hero-name">
       <div class="container">
-        <div class="prose">
-          <div class="hero-badge">
-            <span aria-hidden="true">🎓</span>
-            <span>S1 Teknik Informatika, Cum Laude (IPK 3.74/4.00)</span>
-          </div>
-          <h1 id="hero-name" class="hero-title">Asep Hernandi</h1>
-          <p class="hero-subtitle">
-            Software Engineer dan Peneliti yang berfokus pada Full-Stack Web Development,
-            Permissioned Blockchain, Data Analytics, dan Artificial Intelligence. Berpengalaman
-            membangun sistem terdesentralisasi untuk transparansi publik dan solusi pemetaan spasial pemerintahan.
-          </p>
-          <div class="hero-actions">
-            <!-- CV Download Button with Transparent File Size -->
-            <a href="asset/CV_Asep_Hernandi.pdf" download="CV_Asep_Hernandi.pdf" class="btn btn-primary" type="application/pdf">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
               </svg>
-              <span>Download CV</span>
-              <span class="btn-pill-info">(PDF, 225 KB)</span>
-            </a>
+              <span>S1 Teknik Informatika &bull; Cum Laude (IPK 3.74/4.00)</span>
+            </div>
+            <h1 id="hero-name" class="hero-title">Asep Hernandi</h1>
+            <p class="hero-subtitle">
+              Software Engineer dan Peneliti yang berfokus pada arsitektur permissioned blockchain, sistem kecerdasan buatan, dan pemrosesan data spasial sipil. Berpengalaman merancang sistem terdesentralisasi berbasis smart contract serta algoritma computer vision dengan validasi publikasi ilmiah nasional.
+            </p>
+            <div class="hero-actions">
+              <!-- CV Download Button with Transparent File Size -->
+              <a href="asset/CV_Asep_Hernandi.pdf" download="CV_Asep_Hernandi.pdf" class="btn btn-primary" type="application/pdf">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Download CV</span>
+                <span class="btn-pill-info">(PDF, 225 KB)</span>
+              </a>
 
-            <!-- Quick Contact Anchor -->
-            <a href="#contact" class="btn btn-secondary">
-              <span>Hubungi Saya</span>
-            </a>
+              <!-- Quick Contact Anchor -->
+              <a href="#contact" class="btn btn-secondary">
+                <span>Hubungi Saya</span>
+              </a>
+            </div>
+
+            <div class="social-links">
+              <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Profil GitHub Asep Hernandi (terbuka di tab baru)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://linkedin.com/in/AsepHernandi" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Profil LinkedIn Asep Hernandi (terbuka di tab baru)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="mailto:asephernand@gmail.com" class="social-link" aria-label="Kirim email ke asephernand@gmail.com">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>asephernand@gmail.com</span>
+              </a>
+            </div>
           </div>
 
-          <div class="social-links">
-            <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer" class="social-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-              <span>GitHub</span>
-            </a>
-            <a href="https://linkedin.com/in/AsepHernandi" target="_blank" rel="noopener noreferrer" class="social-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-              <span>LinkedIn</span>
-            </a>
-            <a href="mailto:asephernand@gmail.com" class="social-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <span>asephernand@gmail.com</span>
-            </a>
-          </div>
+          <!-- Right Column: Engineer Telemetry Console -->
+          <aside class="hero-telemetry" aria-label="Konsol Telemetri Rekayasa &amp; Spesialisasi">
+            <div class="telemetry-card">
+              <div class="telemetry-header">
+                <div class="telemetry-status">
+                  <span class="telemetry-dot" aria-hidden="true"></span>
+                  <span class="telemetry-title">System Telemetry &bull; Research &amp; Engineering</span>
+                </div>
+              </div>
+              <div class="telemetry-grid">
+                <div class="telemetry-item">
+                  <span class="telemetry-label">Blockchain Core</span>
+                  <span class="telemetry-value">Hyperledger Fabric, ECDSA, Smart Contracts</span>
+                </div>
+                <div class="telemetry-item">
+                  <span class="telemetry-label">Civic GIS</span>
+                  <span class="telemetry-value">327+ SD Negeri Terpetakan, DISKOMINFO</span>
+                </div>
+                <div class="telemetry-item">
+                  <span class="telemetry-label">Computer Vision</span>
+                  <span class="telemetry-value">100% Presisi, Publikasi Jurnal SINTA 5</span>
+                </div>
+                <div class="telemetry-item">
+                  <span class="telemetry-label">Akademis</span>
+                  <span class="telemetry-value">IPK 3.74 / 4.00, Cum Laude IT UNISSULA</span>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -145,7 +183,10 @@
           <!-- Featured Project 1: HomeChain -->
           <article class="featured-card">
             <span class="featured-label">
-              <span aria-hidden="true">★</span> Proyek Unggulan
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              <span>Proyek Unggulan</span>
             </span>
             <h3 class="project-heading">
               <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer">
@@ -166,7 +207,7 @@
 
             <!-- Architecture Flow Showcase Card (CSS-based system diagram) -->
             <div class="arch-diagram" aria-label="Diagram Arsitektur Alur Sistem HomeChain">
-              <div class="arch-header">Spesifikasi Arsitektur Sistem</div>
+              <div class="arch-header">Spesifikasi Alur Pemrosesan Ledger Terdistribusi</div>
               <div class="arch-nodes">
                 <div class="arch-node">
                   <div class="node-title">Klien Terverifikasi</div>
@@ -174,13 +215,13 @@
                 </div>
                 <div class="arch-connector" aria-hidden="true">&rarr;</div>
                 <div class="arch-node highlight">
-                  <div class="node-title">Smart Contract / Chaincode</div>
-                  <div class="node-subtitle">Automated Audit &amp; ECDSA</div>
+                  <div class="node-title">Smart Contract</div>
+                  <div class="node-subtitle">Chaincode &amp; ECDSA</div>
                 </div>
                 <div class="arch-connector" aria-hidden="true">&rarr;</div>
                 <div class="arch-node">
                   <div class="node-title">Hyperledger Fabric</div>
-                  <div class="node-subtitle">Distributed Immutable Ledger</div>
+                  <div class="node-subtitle">Immutable Ledger</div>
                 </div>
               </div>
             </div>
@@ -202,9 +243,14 @@
               <div>
                 <div class="metric-strip">
                   <span class="metric-badge verified">
-                    <span aria-hidden="true">📍</span> 327+ Titik SD Terpetakan
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>327+ SD Negeri Terpetakan</span>
                   </span>
                   <span class="metric-badge">DISKOMINFO Semarang</span>
+                  <span class="metric-badge">Koordinat Terverifikasi</span>
                 </div>
                 <h3 class="project-heading">
                   <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer">
@@ -235,10 +281,13 @@
               <div>
                 <div class="metric-strip">
                   <span class="metric-badge verified">
-                    <span aria-hidden="true">✓</span> 100% Presisi (CCTV)
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>100% Presisi (CCTV)</span>
                   </span>
                   <span class="metric-badge verified">F1-Score: 86%</span>
-                  <span class="metric-badge">Jurnal SINTA 5</span>
+                  <span class="metric-badge">Publikasi Jurnal SINTA 5</span>
                 </div>
                 <h3 class="project-heading">
                   <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer">
@@ -280,7 +329,7 @@
 
         <div class="timeline-list">
           <!-- Experience 1 -->
-          <div class="timeline-item">
+          <article class="timeline-item">
             <div class="timeline-header">
               <h3 class="timeline-role">Asisten Penelitian Dosen</h3>
               <time class="timeline-period">Sep 2025 – Jun 2026</time>
@@ -291,10 +340,10 @@
               untuk transparansi pelaporan Dana Desa. Mengimplementasikan smart contract pada Hyperledger Fabric
               dan memastikan validasi transaksi terenkripsi dengan algoritma Digital Signature (ECDSA).
             </p>
-          </div>
+          </article>
 
           <!-- Experience 2 -->
-          <div class="timeline-item">
+          <article class="timeline-item">
             <div class="timeline-header">
               <h3 class="timeline-role">Programmer &amp; Data Analytics</h3>
               <time class="timeline-period">Mar 2025 – Jun 2025</time>
@@ -305,10 +354,10 @@
               Merancang antarmuka Web GIS interaktif yang memudahkan pemangku kebijakan dalam memantau
               pemerataan fasilitas pendidikan di Kota Semarang.
             </p>
-          </div>
+          </article>
 
           <!-- Education -->
-          <div class="timeline-item">
+          <article class="timeline-item">
             <div class="timeline-header">
               <h3 class="timeline-role">S1 Teknik Informatika (Cum Laude, IPK 3.74/4.00)</h3>
               <time class="timeline-period">Sep 2022 – Jun 2026</time>
@@ -319,7 +368,7 @@
               berfokus pada Automatic License Plate Recognition berbasis Computer Vision dengan presisi 100%,
               yang berhasil dipublikasikan pada jurnal ilmiah terakreditasi nasional SINTA 5.
             </p>
-          </div>
+          </article>
         </div>
 
         <!-- Skills Matrix -->
@@ -375,10 +424,22 @@
 
         <!-- Interactive Category Filter (Pure Vanilla JS) -->
         <div class="github-filter-bar" role="toolbar" aria-label="Filter kategori repositori">
-          <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">Semua Repositori</button>
-          <button type="button" class="filter-btn" data-filter="blockchain" aria-pressed="false">Blockchain</button>
-          <button type="button" class="filter-btn" data-filter="ai-vision" aria-pressed="false">AI &amp; Vision</button>
-          <button type="button" class="filter-btn" data-filter="gis-web" aria-pressed="false">GIS &amp; Web</button>
+          <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">
+            <span>Semua</span>
+            <span class="filter-count">3</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="blockchain" aria-pressed="false">
+            <span>Blockchain</span>
+            <span class="filter-count">1</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="ai-vision" aria-pressed="false">
+            <span>AI &amp; Vision</span>
+            <span class="filter-count">1</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="gis-web" aria-pressed="false">
+            <span>GIS &amp; Web</span>
+            <span class="filter-count">1</span>
+          </button>
         </div>
 
         <div class="repo-grid">
@@ -482,7 +543,7 @@
             </button>
 
             <!-- Direct LinkedIn Button -->
-            <a href="https://linkedin.com/in/AsepHernandi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <a href="https://linkedin.com/in/AsepHernandi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="Profil LinkedIn Asep Hernandi (terbuka di tab baru)">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
               </svg>
@@ -490,7 +551,7 @@
             </a>
 
             <!-- Direct GitHub Button -->
-            <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <a href="https://github.com/Hernandizz" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="Profil GitHub Asep Hernandi (terbuka di tab baru)">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
               </svg>

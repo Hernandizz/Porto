@@ -26,8 +26,9 @@
     localStorage.setItem(themeStorageKey, theme);
     if (themeToggle) {
       const isDark = theme === 'dark';
-      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
-      themeToggle.setAttribute('title', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+      themeToggle.setAttribute('aria-label', isDark ? 'Ganti ke mode terang' : 'Ganti ke mode gelap');
+      themeToggle.setAttribute('title', isDark ? 'Ganti ke mode terang' : 'Ganti ke mode gelap');
+      
       // Update SVG icons inside toggle button
       const sunIcon = themeToggle.querySelector('.sun-icon');
       const moonIcon = themeToggle.querySelector('.moon-icon');
@@ -68,12 +69,13 @@
   if (copyBtn && copyFeedback) {
     copyBtn.addEventListener('click', function () {
       function showSuccess() {
-        copyFeedback.textContent = 'Email tersalin ke clipboard!';
+        copyFeedback.textContent = 'Tersalin ke clipboard!';
         copyFeedback.classList.add('show');
         if (feedbackTimeout) clearTimeout(feedbackTimeout);
         feedbackTimeout = setTimeout(function () {
           copyFeedback.classList.remove('show');
-        }, 2200);
+          copyFeedback.textContent = '';
+        }, 2000);
       }
 
       function showFallback() {
@@ -112,7 +114,7 @@
       btn.addEventListener('click', function () {
         const filter = this.getAttribute('data-filter');
 
-        // Update active button state
+        // Update active button state and aria-pressed attributes
         filterButtons.forEach(function (b) {
           b.classList.remove('active');
           b.setAttribute('aria-pressed', 'false');
@@ -120,13 +122,20 @@
         this.classList.add('active');
         this.setAttribute('aria-pressed', 'true');
 
-        // Filter cards
+        // Filter cards smoothly with subtle fade-in animation
         repoCards.forEach(function (card) {
           const category = card.getAttribute('data-category');
-          if (filter === 'all' || category === filter) {
+          const isMatch = filter === 'all' || category === filter;
+
+          if (isMatch) {
             card.style.display = 'flex';
+            card.classList.remove('fade-in');
+            // Trigger reflow to restart CSS animation cleanly
+            void card.offsetWidth;
+            card.classList.add('fade-in');
           } else {
             card.style.display = 'none';
+            card.classList.remove('fade-in');
           }
         });
       });
